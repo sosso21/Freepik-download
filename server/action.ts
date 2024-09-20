@@ -24,7 +24,7 @@ export async function sayHello() {
   const kv_ip = await kv.get(key);
 
   await kv.set(key, "OK", {
-    ex: +(process.env.TTS_TIME as string) ?? 10,
+    ex: +(process.env.TTS_TIME ?? 10),
   });
 
   if (!kv_ip && process.env.NODE_ENV == "production") {
